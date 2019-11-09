@@ -45,7 +45,6 @@ class Main
             Command::Fdisk.new.run
         end
     rescue Interrupt => e
-        puts 'Bye'
     end
 end
 

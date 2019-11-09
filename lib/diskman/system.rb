@@ -4,8 +4,8 @@ module Diskman
         # started then we're unable to enter the password. Run a pointless
         # command with sudo first to ensure that we can accept keyboard input
         # for the password, if necessary.
-        def self.prepare_sudo!
-            system('sudo ls >/dev/null')
+        def self.prepare_sudo_session!
+            system('sudo echo >/dev/null')
         end
 
         # Execute a command.
@@ -14,9 +14,9 @@ module Diskman
         # before running it.
         def self.exec!(cmd, safe: true, sudo: true)
             Confirmer.check! if safe
-            prepare_sudo! if sudo
+            prepare_sudo_session! if sudo
             puts
-            system(cmd)
+            exec cmd
         end
 
         # Convert bytes into a human-friendly representation.

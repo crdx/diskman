@@ -12,8 +12,10 @@ module Command
                 return
             end
 
-            device = Device.choose
+            device = RootDevice.choose
             device.ensure_not_mounted!
+
+            device = device.choose_block_device
 
             fs = Chooser.new(get_list, what: 'filesystem').select
             cmd = device.get_mkfs_command(fs)

@@ -6,7 +6,7 @@ module Command
                 raise Interrupt
             end
 
-            device = Device.choose
+            device = RootDevice.choose
             device.ensure_not_mounted!
 
             size = File.size(file)
