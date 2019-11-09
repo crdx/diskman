@@ -38,6 +38,8 @@ Options:
 
 Writes an image to the device.
 
+In this example there is only one device so it has been auto-selected.
+
 ```
 $ diskman write ~/iso/archlinux-2019.10.01-x86_64.iso
 
@@ -64,6 +66,8 @@ Are you sure? Type "YES" if so.
 ### `mkfs`
 
 Formats a device as a particular filesystem.
+
+In this example (and the one following) there are two devices so the user has to pick one.
 
 ```
 $ diskman mkfs
@@ -127,8 +131,8 @@ Writing inode tables: done
 Creating journal (4096 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
-### fdisk
 
+### fdisk
 
 Starts fdisk for the device.
 
