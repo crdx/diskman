@@ -72,26 +72,26 @@ In this example (and the one following) there are two devices so the user has to
 ```
 $ diskman mkfs
 
-Please pick from the following removable devices.
+Choose from the following removable devices.
 
     1. /dev/sde [61G, SanDisk Ultra USB 3.0]
     2. /dev/sdf [2G, USB 2.0 USB Flash Drive]
 
-Enter the number of your selection.
+Enter your selection.
 
 > 1
 
-Please pick from the following devices.
+Choose from the following devices.
 
     1. /dev/sde
     2. /dev/sde1
     3. /dev/sde2
 
-Enter the number of your selection.
+Enter your selection.
 
 > 2
 
-Please pick from the following filesystems.
+Choose from the following filesystems.
 
     1. bfs
     2. btrfs
@@ -106,7 +106,7 @@ Please pick from the following filesystems.
    11. vfat
    12. xfs
 
-Enter the number of your selection.
+Enter your selection.
 
 > 6
 
@@ -139,12 +139,12 @@ Starts fdisk for the device.
 ```
 $ diskman fdisk
 
-Please pick from the following removable devices.
+Choose from the following removable devices.
 
     1. /dev/sde [61G, SanDisk Ultra USB 3.0]
     2. /dev/sdf [2G, USB 2.0 USB Flash Drive]
 
-Enter the number of your selection.
+Enter your selection.
 
 > 1
 

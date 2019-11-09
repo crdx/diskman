@@ -24,7 +24,7 @@ module Diskman
             if @items.length == 1
                 puts 'Found the following %s.' % label
             else
-                puts 'Please pick from the following %s.' % @plural
+                puts 'Choose from the following %s.' % @plural
             end
 
             puts
@@ -41,7 +41,7 @@ module Diskman
                 return @items.first
             end
 
-            puts 'Enter the number of your selection.'
+            puts 'Enter your selection.'
             puts
             print '> '
 
