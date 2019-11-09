@@ -1,0 +1,69 @@
+#!/usr/bin/env ruby
+require_relative '../lib/diskman'
+include Diskman
+
+class Main
+    def initialize(opts)
+        @opts = opts
+    end
+
+    def self.run(opts)
+        new(opts).run
+    end
+
+    def params
+        @params ||= OpenStruct.new({
+            version: @opts['--version'],
+            help: @opts['--help'],
+            list: @opts['--list'],
+            write: @opts['write'],
+            fdisk: @opts['fdisk'],
+            mkfs: @opts['mkfs'],
+            file: @opts['<file>'],
+        })
+    end
+
+    def exit_usage
+        puts DOCS
+        exit 0
+    end
+
+    def exit_version
+        puts Diskman::VERSION
+        exit 0
+    end
+
+    def run
+        exit_version if params.version
+        exit_usage if params.help
+
+        if params.mkfs
+            Command::Mkfs.new.run(list: params.list)
+        elsif params.write
+            Command::Write.new.run(file: params.file)
+        elsif params.fdisk
+            Command::Fdisk.new.run
+        end
+    rescue Interrupt => e
+        puts 'Bye'
+    end
+end
+
+docs = <<~EOF
+    #{'Usage:'.bold}
+        #{File.basename($0)} write <file>
+        #{File.basename($0)} fdisk
+        #{File.basename($0)} mkfs [ --list ]
+        #{File.basename($0)} ( --version | --help )
+
+    #{'Options:'.bold}
+        -v, --version  Show version
+        -h, --help     Show this help
+EOF
+
+begin
+    Main.run(Docopt::docopt(docs, version: VERSION))
+rescue Docopt::Exit => e
+    puts e.message
+    exit 1
+end
