@@ -12,15 +12,11 @@ module Diskman
         # If sudo is true, ensures sudo is ready before running the command.
         # If safe is true, ensures the user definitely wants to run the command
         # before running it.
-        def self.exec!(cmd, safe: false, sudo: true)
+        def self.exec!(cmd, safe: true, sudo: true)
             Confirmer.check! if safe
             prepare_sudo! if sudo
             puts
             system(cmd)
-        end
-
-        def self.safe_exec!(cmd)
-            exec!(cmd, safe: true)
         end
 
         # Convert bytes into a human-friendly representation.

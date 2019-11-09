@@ -3,7 +3,7 @@ module Command
         def run
            device = Device.choose
            cmd = device.get_fdisk_command
-           System.exec! cmd
+           System.exec! cmd, safe: false
         end
     end
 end
