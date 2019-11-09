@@ -1,11 +1,11 @@
 module Diskman
-    class Mount
-        def self.is_mounted(name)
-            Mount.new.find(name)
+    class Mtab
+        def self.mounted?(name)
+            new.find(name)
         end
 
-        def self.get_mount_point(name)
-            Mount.new.find(name).chomp.match(/[^ ]+ (?<m>[^ ]+)/)[:m]
+        def self.mount_point(name)
+            new.find(name).chomp.match(/[^ ]+ (?<m>[^ ]+)/)[:m]
         end
 
         def find(name)

@@ -1,10 +1,10 @@
 module Diskman
     # Presents the user with a list of items to choose from.
     class Chooser
-        def initialize(items, what:)
+        def initialize(items, item:)
             @items = items
-            @singular = what
-            @plural = what + 's'
+            @singular = item
+            @plural = item + 's'
         end
 
         def label
@@ -13,10 +13,6 @@ module Diskman
             else
                 @singular
             end
-        end
-
-        def space
-            ' '
         end
 
         def select
@@ -34,7 +30,7 @@ module Diskman
             puts
 
             @items.each_with_index do |device, i|
-                puts "#{(space * 4) }#{i + 1}. #{device}"
+                puts "%6d. %s" % [i + 1, device]
             end
 
             puts

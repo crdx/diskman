@@ -1,6 +1,5 @@
 require 'require_all'
 require 'colorize'
-require 'docopt'
 
 require 'ostruct'
 

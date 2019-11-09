@@ -15,9 +15,9 @@ module Command
             device = RootDevice.choose
             device.ensure_not_mounted!
 
-            device = device.choose_block_device
+            device = device.choose_with_partitions
 
-            fs = Chooser.new(get_list, what: 'filesystem').select
+            fs = Chooser.new(get_list, item: 'filesystem').select
             cmd = device.get_mkfs_command(fs)
 
             puts "Filesystem: #{fs.yellow}"

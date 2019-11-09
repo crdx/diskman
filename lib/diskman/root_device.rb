@@ -4,38 +4,24 @@ module Diskman
             Dir['/sys/block/*/removable'].select do |file|
                 File.read(file).strip == '1'
             end.map do |path|
-                path =~ /^\/sys\/block\/(.*)\/removable$/ && RootDevice.new($1)
+                path =~ %r[^/sys/block/(.*)/removable$]x && RootDevice.new($1)
             end.sort
         end
 
         def self.choose
-            Chooser.new(RootDevice.get_removable, what: 'removable device').select
+            Chooser.new(RootDevice.get_removable, item: 'removable device').select
         end
 
-        def get_devices
-            Dir[@path + '*'].sort.map do |file|
-                file =~ %r[/dev/(.*)] && Device.new($1)
-            end.sort
-        end
-
-        def choose_block_device
-            Chooser.new(get_devices, what: 'device').select
+        def choose_with_partitions
+            Chooser.new(get_with_partitions, item: 'block device').select
         end
 
         def ensure_not_mounted!
             if mounted?
-                puts ('Warning: device appears to be mounted at ' + get_mount_point).yellow
+                puts ('Warning: device appears to be mounted at ' + mount_point).yellow
                 puts 'Not continuing'.red
                 raise Interrupt
             end
-        end
-
-        def mounted?
-            Mount.is_mounted(@name)
-        end
-
-        def get_mount_point
-            Mount.get_mount_point(@name)
         end
 
         def to_s
@@ -43,6 +29,12 @@ module Diskman
         end
 
         private
+
+        def get_with_partitions
+            Dir[@path + '*'].sort.map do |file|
+                file =~ %r[/dev/(.*)] && Device.new($1)
+            end.sort
+        end
 
         def get_int_prop(name)
             get_prop(name).to_i
@@ -54,7 +46,8 @@ module Diskman
         end
 
         def label
-            [get_prop('device/vendor'), get_prop('device/model')].reject(&:empty?).join(' ')
+            parts = [get_prop('device/vendor'), get_prop('device/model')]
+            parts.reject(&:empty?).join(' ')
         end
 
         def size_bytes
@@ -63,6 +56,14 @@ module Diskman
 
         def size
             System.bytes2human(size_bytes)
+        end
+
+        def mounted?
+            Mtab.mounted?(@name)
+        end
+
+        def mount_point
+            Mtab.mount_point(@name)
         end
     end
 end

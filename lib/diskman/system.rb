@@ -1,11 +1,10 @@
 module Diskman
-    class System
+    module System
         # If sudo prompts for the password when a pipeline with pv has already
-        # started then we're unable to enter the password. Run a pointless
-        # command with sudo first to ensure that we can accept keyboard input
-        # for the password, if necessary.
+        # started then we're unable to enter the password. Run sudo --validate
+        # first to ensure that we are preauthenticated.
         def self.prepare_sudo_session!
-            system('sudo echo >/dev/null')
+            system('sudo --validate')
         end
 
         # Execute a command.
@@ -27,10 +26,10 @@ module Diskman
             # advertised.
             k = 1000
 
-            suffices = ['T', 'G', 'M', 'K', 'B']
+            suffixes = ['T', 'G', 'M', 'K', 'B']
 
-            suffices.each_with_index do |suffix, i|
-                threshold = k ** (suffices.length - i - 1)
+            suffixes.each_with_index do |suffix, i|
+                threshold = k ** (suffixes.length - i - 1)
                 if b >= threshold
                     return (b / threshold).to_s + suffix
                 end

@@ -102,9 +102,9 @@ Please pick from the following filesystems.
     7. ext4
     8. fat
     9. minix
-    10. msdos
-    11. vfat
-    12. xfs
+   10. msdos
+   11. vfat
+   12. xfs
 
 Enter the number of your selection.
 

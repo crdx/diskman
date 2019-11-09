@@ -4,7 +4,7 @@ module Diskman
         YES = 'YES'
 
         def self.check!
-            self.new.check!
+            new.check!
         end
 
         def check!

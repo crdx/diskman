@@ -2,6 +2,8 @@
 require_relative '../lib/diskman'
 include Diskman
 
+require 'docopt'
+
 class Main
     def initialize(opts)
         @opts = opts
