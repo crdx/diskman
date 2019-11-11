@@ -9,7 +9,9 @@ module Diskman
         end
 
         def self.choose
-            Chooser.new(RootDevice.get_removable, item: 'removable device').select
+            selection = Chooser.new(RootDevice.get_removable, item: 'removable device').select
+            selection.ensure_not_mounted!
+            selection
         end
 
         def choose_with_partitions

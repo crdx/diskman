@@ -7,8 +7,6 @@ module Command
             end
 
             device = RootDevice.choose
-            device.ensure_not_mounted!
-
             size = File.size(file)
             cmd = device.get_write_command(file, size)
 

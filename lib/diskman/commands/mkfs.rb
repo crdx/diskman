@@ -13,8 +13,6 @@ module Command
             end
 
             device = RootDevice.choose
-            device.ensure_not_mounted!
-
             device = device.choose_with_partitions
 
             fs = Chooser.new(get_list, item: 'filesystem').select
