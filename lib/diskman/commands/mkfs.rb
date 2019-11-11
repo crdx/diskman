@@ -1,8 +1,8 @@
 module Command
     class Mkfs
         def get_list
-            Dir['/usr/bin/mkfs.*'].map do |path|
-                path.gsub(%r[^/usr/bin/mkfs.], '')
+            Dir['/sbin/mkfs.*'].map do |path|
+                path.gsub(%r[^/sbin/mkfs.], '')
             end.sort
         end
 
