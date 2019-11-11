@@ -14,7 +14,7 @@ module Command
             puts "Device:  #{device.to_s.yellow}"
             puts "Command: #{cmd.yellow}"
 
-            System.exec!(cmd)
+            System.exec! cmd
         end
     end
 end
