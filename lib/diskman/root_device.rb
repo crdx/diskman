@@ -5,6 +5,8 @@ module Diskman
                 File.read(file).strip == '1'
             end.map do |path|
                 path =~ %r[^/sys/block/(.*)/removable$]x && RootDevice.new($1)
+            end.reject do |device|
+                device.name =~ /sr\d+/
             end.sort
         end
 
