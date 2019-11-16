@@ -17,13 +17,7 @@ module Diskman
         end
 
         def get_write_command(path, bytes)
-            if `which 2>/dev/null pv`.length > 0
-                pv = 'pv --size %d' % bytes
-                dd = 'dd if="%s" | ' + pv + ' | sudo dd of="%s" bs=%d'
-            else
-                dd = 'sudo dd if="%s" of="%s" bs=%d'
-            end
-
+            dd = 'sudo dd if="%s" of="%s" bs=%dK status=progress'
             dd % [path, @path, 4096]
         end
 
