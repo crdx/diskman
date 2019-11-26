@@ -7,6 +7,8 @@ module Command
             end
 
             device = RootDevice.choose
+            device = device.choose_with_partitions
+
             size = File.size(file)
             cmd = device.get_write_command(file, size)
 
