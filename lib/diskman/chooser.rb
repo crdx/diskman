@@ -36,7 +36,7 @@ module Diskman
             puts
 
             if @items.length == 1
-                puts 'Press any key to select it.'
+                puts 'Press enter to select it.'
                 $stdin.gets
                 return @items.first
             end

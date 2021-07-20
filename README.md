@@ -47,7 +47,7 @@ Found the following removable device.
 
     1. /dev/sde [61G, SanDisk Ultra USB 3.0]
 
-Press any key to select it.
+Press enter to select it.
 
 File:    ~/iso/archlinux-2019.10.01-x86_64.iso (657M)
 Device:  /dev/sde [61G, SanDisk Ultra USB 3.0]
