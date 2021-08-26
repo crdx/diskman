@@ -158,7 +158,7 @@ Created a new DOS disklabel with disk identifier 0x2736460c.
 Command (m for help):
 ```
 
-## Fixes or contributions
+## Bugs or contributions
 
 Open an [issue](https://github.com/crdx/diskman/issues) or send a [pull request](https://github.com/crdx/diskman/pulls).
 
