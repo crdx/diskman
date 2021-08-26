@@ -160,7 +160,7 @@ Command (m for help):
 
 ## Fixes or contributions
 
-Open an [issue](http://github.com/crdx/diskman/issues) or send a [pull request](http://github.com/crdx/diskman/pulls).
+Open an [issue](https://github.com/crdx/diskman/issues) or send a [pull request](https://github.com/crdx/diskman/pulls).
 
 ## Licence
 
