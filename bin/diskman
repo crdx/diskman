@@ -16,7 +16,6 @@ class Main
     def params
         @params ||= OpenStruct.new({
             version: @opts['--version'],
-            help: @opts['--help'],
             list: @opts['--list'],
             write: @opts['write'],
             fdisk: @opts['fdisk'],
@@ -25,19 +24,11 @@ class Main
         })
     end
 
-    def exit_usage
-        puts DOCS
-        exit 0
-    end
-
-    def exit_version
-        puts Diskman::VERSION
-        exit 0
-    end
-
     def run
-        exit_version if params.version
-        exit_usage if params.help
+        if params.version
+            puts VERSION
+            exit
+        end
 
         if params.mkfs
             Command::Mkfs.new.run(list: params.list)
@@ -50,21 +41,21 @@ class Main
     end
 end
 
-docs = <<~EOF
-    #{'Usage:'.bold}
+usage = <<~EOF
+    Usage:
         #{File.basename($0)} write <file>
         #{File.basename($0)} fdisk
-        #{File.basename($0)} mkfs [ --list ]
+        #{File.basename($0)} mkfs [--list]
         #{File.basename($0)} ( --version | --help )
 
-    #{'Options:'.bold}
-        -v, --version  Show version
-        -h, --help     Show this help
+    Options:
+        -v, --version    Show version
+        -h, --help       Show this help
 EOF
 
 begin
-    Main.run(Docopt::docopt(docs, version: VERSION))
+    Main.run(Docopt.docopt(usage))
 rescue Docopt::Exit => e
-    puts e.message
-    exit 1
+    puts usage
+    exit 2
 end
