@@ -53,9 +53,9 @@ File:    ~/iso/archlinux-2019.10.01-x86_64.iso (657M)
 Device:  /dev/sde [61G, SanDisk Ultra USB 3.0]
 Command: dd if="~/iso/archlinux-2019.10.01-x86_64.iso" | pv --size 657457152 | sudo dd of="/dev/sde" bs=4096
 
-Are you sure? Type "YES" if so.
+Are you sure? Type "yes".
 
-> YES
+> yes
 
 627MiB 0:00:36 [17.3MiB/s] [============================>] 100%
 160511+2 records in
@@ -114,9 +114,9 @@ Filesystem: ext3
 Device:     /dev/sde1
 Command:    sudo mkfs.ext3 /dev/sde1
 
-Are you sure? Type "YES" if so.
+Are you sure? Type "yes".
 
-> YES
+> yes
 
 mke2fs 1.45.4 (23-Sep-2019)
 /dev/sde1 contains a iso9660 file system labelled 'CD'

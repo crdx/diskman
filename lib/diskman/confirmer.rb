@@ -1,7 +1,7 @@
 module Diskman
     # Confirms whether the user wants to do something destructive.
     class Confirmer
-        YES = 'YES'
+        YES = 'yes'
 
         def self.check!
             new.check!
@@ -9,7 +9,7 @@ module Diskman
 
         def check!
             puts
-            puts 'Are you sure? Type "%s" if so.' % YES
+            puts 'Are you sure? Type "%s"' % YES
             puts
 
             print '> '
