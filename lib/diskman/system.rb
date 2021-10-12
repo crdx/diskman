@@ -15,7 +15,7 @@ module Diskman
             Confirmer.check! if safe
             prepare_sudo_session! if sudo
             puts
-            exec cmd
+            exec(cmd)
         end
 
         # Convert bytes into a human-friendly representation.
@@ -26,7 +26,7 @@ module Diskman
             # advertised.
             k = 1000
 
-            suffixes = ['T', 'G', 'M', 'K', 'B']
+            suffixes = %w[T G M K B]
 
             suffixes.each_with_index do |suffix, i|
                 threshold = k ** (suffixes.length - i - 1)

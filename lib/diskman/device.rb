@@ -16,7 +16,7 @@ module Diskman
             'sudo mkfs.%s %s' % [fs, @path]
         end
 
-        def get_write_command(path, bytes)
+        def get_write_command(path)
             dd = 'sudo dd if="%s" of="%s" bs=%dK status=progress'
             dd % [path, @path, 4096]
         end
@@ -27,8 +27,8 @@ module Diskman
 
         private
 
-        def <=>(o)
-            @path <=> o.path
+        def <=>(other)
+            @path <=> other.path
         end
     end
 end

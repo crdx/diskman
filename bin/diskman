@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 require_relative '../lib/diskman'
-include Diskman
-
 require 'docopt'
+
+include Diskman # rubocop:disable Style/MixinUsage
 
 class Main
     def initialize(opts)
@@ -37,7 +37,7 @@ class Main
         elsif params.fdisk
             Command::Fdisk.new.run
         end
-    rescue Interrupt => e
+    rescue Interrupt # rubocop:disable Lint/SuppressedException
     end
 end
 
@@ -55,7 +55,7 @@ EOF
 
 begin
     Main.run(Docopt.docopt(usage))
-rescue Docopt::Exit => e
+rescue Docopt::Exit
     puts usage
     exit 2
 end

@@ -35,7 +35,7 @@ module Diskman
         private
 
         def get_with_partitions
-            Dir[@path + '*'].sort.map do |file|
+            Dir[@path + '*'].map do |file|
                 file =~ %r[/dev/(.*)] && Device.new($1)
             end.sort
         end
@@ -45,7 +45,7 @@ module Diskman
         end
 
         def get_prop(name)
-            file = "/sys/class/block/%s/%s" % [@name, name]
+            file = '/sys/class/block/%s/%s' % [@name, name]
             File.read(file).strip.gsub(/\s+/, ' ')
         end
 

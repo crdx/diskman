@@ -30,7 +30,7 @@ module Diskman
             puts
 
             @items.each_with_index do |device, i|
-                puts "%6d. %s" % [i + 1, device]
+                puts '%6d. %s' % [i + 1, device]
             end
 
             puts
