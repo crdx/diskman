@@ -6,6 +6,8 @@ AllCops:
 # Disabled
 ########################################################################
 
+Style/MixinUsage:
+  Enabled: no
 Style/FormatString:
   Enabled: no
 Style/FormatStringToken:

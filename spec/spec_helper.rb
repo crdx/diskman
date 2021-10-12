@@ -6,4 +6,4 @@ SimpleCov.start do
 end
 
 require_relative '../lib/diskman'
-include Diskman # rubocop:disable Style/MixinUsage
+include Diskman
