@@ -4,6 +4,16 @@ require 'docopt'
 
 include Diskman
 
+Params = Struct.new(
+    :version,
+    :list,
+    :write,
+    :fdisk,
+    :mkfs,
+    :file,
+    keyword_init: true,
+)
+
 class Main
     def initialize(opts)
         @opts = opts
@@ -14,14 +24,14 @@ class Main
     end
 
     def params
-        @params ||= OpenStruct.new({
+        @params ||= Params.new(
             version: @opts['--version'],
             list: @opts['--list'],
             write: @opts['write'],
             fdisk: @opts['fdisk'],
             mkfs: @opts['mkfs'],
             file: @opts['<file>'],
-        })
+        )
     end
 
     def run
