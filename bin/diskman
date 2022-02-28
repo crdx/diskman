@@ -51,12 +51,14 @@ class Main
     end
 end
 
+PROGRAM_NAME = File.basename($PROGRAM_NAME)
+
 usage = <<~EOF
     Usage:
-        #{File.basename($0)} write <file>
-        #{File.basename($0)} fdisk
-        #{File.basename($0)} mkfs [--list]
-        #{File.basename($0)} ( --version | --help )
+        #{PROGRAM_NAME} write <file>
+        #{PROGRAM_NAME} fdisk
+        #{PROGRAM_NAME} mkfs [--list]
+        #{PROGRAM_NAME} ( --version | --help )
 
     Options:
         -v, --version    Show version
