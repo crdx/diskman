@@ -1,6 +1,6 @@
 # diskman
 
-`diskman` is an interactive command-line interface for safely managing removable disks.
+**diskman** is an interactive command-line interface for safely managing removable disks.
 
 It can be seen as a wrapper around `dd`, `fdisk`, and `mkfs.*`.
 
