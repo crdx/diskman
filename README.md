@@ -29,7 +29,7 @@ Usage:
 
 Options:
     -v, --version  Show version
-    -h, --help     Show this help
+    -h, --help     Show help
 ```
 
 ## Examples
