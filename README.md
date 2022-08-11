@@ -164,4 +164,4 @@ Open an [issue](https://github.com/crdx/diskman/issues) or send a [pull request]
 
 ## Licence
 
-[MIT](LICENCE.md).
+[GPLv3](LICENCE).
