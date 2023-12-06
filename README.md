@@ -69,17 +69,14 @@ Clones a device to an image file.
 ```
 $ diskman clone disk.img
 
-Choose from the following removable devices.
+Found the following removable device.
 
-     1. /dev/sdc [0B, Generic- USB3.0 CRW -SD]
-     2. /dev/sdd [63G, Generic- USB3.0 CRW -SD]
+    1. /dev/sdd [61G, SanDisk Ultra USB 3.0]
 
-Enter your selection.
-
-> 2
+Press enter to select it.
 
 File:    disk.img
-Device:  /dev/sdd [63G, Generic- USB3.0 CRW -SD]
+Device:  /dev/sdd [61G, SanDisk Ultra USB 3.0]
 Command: sudo dd if="/dev/sdd" of="disk.img" bs=4M status=progress conv=fsync
 
 Are you sure? Type "yes"
