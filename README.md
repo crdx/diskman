@@ -41,7 +41,7 @@ Writes an image to the device.
 In this example there is only one device so it has been auto-selected.
 
 ```
-$ diskman write ~/iso/archlinux-2019.10.01-x86_64.iso
+$ diskman write archlinux-2019.10.01-x86_64.iso
 
 Found the following removable device.
 
@@ -49,15 +49,14 @@ Found the following removable device.
 
 Press enter to select it.
 
-File:    ~/iso/archlinux-2019.10.01-x86_64.iso (657M)
+File:    archlinux-2019.10.01-x86_64.iso (657M)
 Device:  /dev/sde [61G, SanDisk Ultra USB 3.0]
-Command: dd if="~/iso/archlinux-2019.10.01-x86_64.iso" | pv --size 657457152 | sudo dd of="/dev/sde" bs=4096
+Command: dd if="archlinux-2019.10.01-x86_64.iso" of="/dev/sde" bs=4M status=progress conv=fsync
 
 Are you sure? Type "yes".
 
 > yes
 
-627MiB 0:00:36 [17.3MiB/s] [============================>] 100%
 160511+2 records in
 160511+2 records out
 657457152 bytes (657 MB, 627 MiB) copied, 43.6238 s, 15.1 MB/s
