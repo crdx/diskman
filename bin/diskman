@@ -8,6 +8,7 @@ Params = Struct.new(
     :version,
     :list,
     :write,
+    :clone,
     :fdisk,
     :mkfs,
     :file,
@@ -28,6 +29,7 @@ class Main
             version: @opts['--version'],
             list: @opts['--list'],
             write: @opts['write'],
+            clone: @opts['clone'],
             fdisk: @opts['fdisk'],
             mkfs: @opts['mkfs'],
             file: @opts['<file>'],
@@ -44,6 +46,8 @@ class Main
             Command::Mkfs.new.run(list: params.list)
         elsif params.write
             Command::Write.new.run(file: params.file)
+        elsif params.clone
+            Command::Clone.new.run(file: params.file)
         elsif params.fdisk
             Command::Fdisk.new.run
         end
@@ -56,6 +60,7 @@ PROGRAM_NAME = File.basename($PROGRAM_NAME)
 usage = <<~EOF
     Usage:
         #{PROGRAM_NAME} write <file>
+        #{PROGRAM_NAME} clone <file>
         #{PROGRAM_NAME} fdisk
         #{PROGRAM_NAME} mkfs [--list]
         #{PROGRAM_NAME} ( --version | --help )

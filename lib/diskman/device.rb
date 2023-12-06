@@ -21,6 +21,11 @@ module Diskman
             dd % [path, @path, 4]
         end
 
+        def get_clone_command(path)
+            dd = 'sudo dd if="%s" of="%s" bs=%dM status=progress conv=fsync'
+            dd % [@path, path, 4]
+        end
+
         def to_s
             @path
         end

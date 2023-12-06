@@ -62,6 +62,35 @@ Are you sure? Type "yes".
 657457152 bytes (657 MB, 627 MiB) copied, 43.6238 s, 15.1 MB/s
 ```
 
+### `clone`
+
+Clones a device to an image file.
+
+```
+$ diskman clone disk.img
+
+Choose from the following removable devices.
+
+     1. /dev/sdc [0B, Generic- USB3.0 CRW -SD]
+     2. /dev/sdd [63G, Generic- USB3.0 CRW -SD]
+
+Enter your selection.
+
+> 2
+
+File:    disk.img
+Device:  /dev/sdd [63G, Generic- USB3.0 CRW -SD]
+Command: sudo dd if="/dev/sdd" of="disk.img" bs=4M status=progress conv=fsync
+
+Are you sure? Type "yes"
+
+> yes
+
+15226+1 records in
+15226+1 records out
+63864569856 bytes (64 GB, 59 GiB) copied, 802.035 s, 79.6 MB/s
+```
+
 ### `mkfs`
 
 Formats a device as a particular filesystem.
