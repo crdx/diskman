@@ -13,8 +13,7 @@ module Diskman
         def self.bytes2human(b)
             return '0B' if b <= 0
 
-            # Use 1000 to match the misleading way disk capacities are
-            # advertised.
+            # Use 1000 to match the misleading way disk capacities are advertised.
             k = 1000
 
             suffixes = %w[T G M K B]
