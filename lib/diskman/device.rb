@@ -17,8 +17,8 @@ module Diskman
         end
 
         def get_write_command(path)
-            dd = 'sudo dd if="%s" of="%s" bs=%dK status=progress'
-            dd % [path, @path, 4096]
+            dd = 'sudo dd if="%s" of="%s" bs=%dM status=progress conv=fsync'
+            dd % [path, @path, 4]
         end
 
         def to_s
