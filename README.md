@@ -160,7 +160,7 @@ Creating journal (4096 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-### fdisk
+### `fdisk`
 
 Starts fdisk for the device.
 
