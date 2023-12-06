@@ -1,19 +1,10 @@
 module Diskman
     module System
-        # If sudo prompts for the password when a pipeline with pv has already
-        # started then we're unable to enter the password. Run sudo --validate
-        # first to ensure that we are preauthenticated.
-        def self.prepare_sudo_session!
-            system('sudo --validate')
-        end
-
         # Execute a command.
-        # If sudo is true, ensures sudo is ready before running the command.
-        # If safe is true, ensures the user definitely wants to run the command
-        # before running it.
-        def self.exec!(cmd, safe: true, sudo: true)
+        #
+        # If safe is true, ensures the user definitely wants to run the command before running it.
+        def self.exec!(cmd, safe: true)
             Confirmer.check! if safe
-            prepare_sudo_session! if sudo
             puts
             exec(cmd)
         end
