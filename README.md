@@ -23,13 +23,15 @@ The binary is called `diskman`.
 ```
 Usage:
     diskman write <file>
+    diskman clone <file>
     diskman fdisk
-    diskman mkfs [ --list ]
+    diskman mkfs [--list]
+    diskman choose ( device | partition )
     diskman ( --version | --help )
 
 Options:
-    -v, --version  Show version
-    -h, --help     Show help
+    -v, --version    Show version
+    -h, --help       Show help
 ```
 
 ## Examples
