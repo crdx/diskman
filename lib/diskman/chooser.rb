@@ -17,37 +17,37 @@ module Diskman
 
         def select
             if @items.length == 0
-                puts 'No %s found'.yellow % @plural
+                $stderr.puts 'No %s found'.yellow % @plural
                 raise Interrupt
             end
 
             if @items.length == 1
-                puts 'Found the following %s.' % label
+                $stderr.puts 'Found the following %s.' % label
             else
-                puts 'Choose from the following %s.' % @plural
+                $stderr.puts 'Choose from the following %s.' % @plural
             end
 
-            puts
+            $stderr.puts
 
             @items.each_with_index do |device, i|
-                puts '%6d. %s' % [i + 1, device]
+                $stderr.puts '%6d. %s' % [i + 1, device]
             end
 
-            puts
+            $stderr.puts
 
             if @items.length == 1
-                puts 'Press enter to select it.'
+                $stderr.puts 'Press enter to select it.'
                 $stdin.gets
                 return @items.first
             end
 
-            puts 'Enter your selection.'
-            puts
-            print '> '
+            $stderr.puts 'Enter your selection.'
+            $stderr.puts
+            $stderr.print '> '
 
             selection = $stdin.gets.chomp
 
-            puts
+            $stderr.puts
 
             if selection.length == 0
                 raise Interrupt
@@ -56,7 +56,7 @@ module Diskman
             selection = selection.to_i
 
             if selection <= 0 || selection > @items.length
-                puts 'Invalid selection'.red
+                $stderr.puts 'Invalid selection'.red
                 raise Interrupt
             end
 

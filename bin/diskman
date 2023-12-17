@@ -12,6 +12,9 @@ Params = Struct.new(
     :fdisk,
     :mkfs,
     :file,
+    :choose,
+    :device,
+    :partition,
     keyword_init: true,
 )
 
@@ -33,6 +36,9 @@ class Main
             fdisk: @opts['fdisk'],
             mkfs: @opts['mkfs'],
             file: @opts['<file>'],
+            choose: @opts['choose'],
+            device: @opts['device'],
+            partition: @opts['partition'],
         )
     end
 
@@ -50,6 +56,10 @@ class Main
             Command::Clone.new.run(file: params.file)
         elsif params.fdisk
             Command::Fdisk.new.run
+        elsif params.choose && params.device
+            Command::ChooseDevice.new.run
+        elsif params.choose && params.partition
+            Command::ChoosePartition.new.run
         end
     rescue Interrupt # rubocop:disable Lint/SuppressedException
     end
@@ -63,6 +73,7 @@ usage = <<~EOF
         #{PROGRAM_NAME} clone <file>
         #{PROGRAM_NAME} fdisk
         #{PROGRAM_NAME} mkfs [--list]
+        #{PROGRAM_NAME} choose ( device | partition )
         #{PROGRAM_NAME} ( --version | --help )
 
     Options:
