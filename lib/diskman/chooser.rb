@@ -30,7 +30,7 @@ module Diskman
             $stderr.puts
 
             @items.each_with_index do |device, i|
-                $stderr.puts '%6d. %s' % [i + 1, device]
+                $stderr.puts '%5d. %s' % [i + 1, device]
             end
 
             $stderr.puts
