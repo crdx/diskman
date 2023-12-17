@@ -51,6 +51,8 @@ Metrics/PerceivedComplexity:
   Enabled: no
 Metrics/CyclomaticComplexity:
   Enabled: no
+Metrics/MethodLength:
+  Enabled: no
 
 Naming/HeredocDelimiterNaming:
   Enabled: no
@@ -63,6 +65,9 @@ Layout/LineLength:
   Enabled: false
 
 Lint/AmbiguousOperatorPrecedence:
+  Enabled: no
+
+Lint/StructNewOverride:
   Enabled: no
 
 # ——————————————————————————————————————————————————————————————————————————————————————————————————
