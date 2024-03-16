@@ -26,7 +26,7 @@ run +args:
 test:
     bundle exec rspec
     echo
-    echo o coverage/index.html
+    echo open coverage/index.html
 
 lint:
     rubocop
