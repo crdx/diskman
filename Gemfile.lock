@@ -13,6 +13,7 @@ GEM
     diff-lcs (1.4.4)
     docile (1.4.0)
     docopt (0.6.1)
+    json (2.7.1)
     rake (13.0.6)
     require_all (3.0.0)
     rspec (3.10.0)
@@ -40,6 +41,7 @@ PLATFORMS
 
 DEPENDENCIES
   diskman!
+  json (~> 2.7)
   rake (~> 13.0)
   rspec (~> 3.8)
   simplecov (~> 0.21.0)
