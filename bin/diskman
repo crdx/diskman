@@ -74,11 +74,10 @@ usage = <<~EOF
         #{PROGRAM_NAME} fdisk
         #{PROGRAM_NAME} mkfs [--list]
         #{PROGRAM_NAME} choose ( device | partition )
-        #{PROGRAM_NAME} ( --version | --help )
+        #{PROGRAM_NAME} --version
 
     Options:
         -v, --version    Show version
-        -h, --help       Show help
 EOF
 
 begin

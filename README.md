@@ -27,11 +27,10 @@ Usage:
     diskman fdisk
     diskman mkfs [--list]
     diskman choose ( device | partition )
-    diskman ( --version | --help )
+    diskman --version
 
 Options:
     -v, --version    Show version
-    -h, --help       Show help
 ```
 
 ## Examples
