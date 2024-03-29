@@ -15,17 +15,19 @@ jobs:
 
       - name: Get version
         run: |
-          git fetch origin
-          OLD_VERSION=$(git describe --tags --abbrev=0 --match "v*" origin/main^)
+          git fetch --unshallow
+          git fetch origin --tags --force
+          OLD_VERSION=$(git describe --tags --abbrev=0 --match "v*" ${{ github.ref }}^)
           echo "OLD_VERSION=$OLD_VERSION" >> $GITHUB_ENV
 
       - name: Find commits since previous version
         run: |
-          MESSAGES=$(git log ${{ env.OLD_VERSION }}..${{ github.ref }} --pretty=format:"- %s")
-          MESSAGES="${MESSAGES//'%'/'%25'}"
-          MESSAGES="${MESSAGES//$'\n'/'%0A'}"
-          MESSAGES="${MESSAGES//$'\r'/'%0D'}"
-          echo "MESSAGES=$MESSAGES" >> $GITHUB_ENV
+          {
+            echo 'MESSAGES<<EOF'
+            git --no-pager log ${{ env.OLD_VERSION }}..${{ github.ref }} --pretty=format:"- %s" --reverse
+            echo
+            echo EOF
+          } >> "$GITHUB_ENV"
 
       - name: Create draft release
         uses: actions/create-release@v1
