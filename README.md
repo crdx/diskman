@@ -26,7 +26,7 @@ Usage:
     diskman clone <file>
     diskman fdisk
     diskman mkfs [--list]
-    diskman choose ( device | partition )
+    diskman choose (device | partition)
     diskman --version
 
 Options:

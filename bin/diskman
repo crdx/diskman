@@ -73,7 +73,7 @@ usage = <<~EOF
         #{PROGRAM_NAME} clone <file>
         #{PROGRAM_NAME} fdisk
         #{PROGRAM_NAME} mkfs [--list]
-        #{PROGRAM_NAME} choose ( device | partition )
+        #{PROGRAM_NAME} choose (device | partition)
         #{PROGRAM_NAME} --version
 
     Options:
