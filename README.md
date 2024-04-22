@@ -27,6 +27,7 @@ Usage:
     diskman fdisk
     diskman mkfs [--list]
     diskman choose (device | partition)
+    diskman ls
     diskman --version
 
 Options:

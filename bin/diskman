@@ -11,6 +11,7 @@ Params = Struct.new(
     :clone,
     :fdisk,
     :mkfs,
+    :ls,
     :file,
     :choose,
     :device,
@@ -35,6 +36,7 @@ class Main
             clone: @opts['clone'],
             fdisk: @opts['fdisk'],
             mkfs: @opts['mkfs'],
+            ls: @opts['ls'],
             file: @opts['<file>'],
             choose: @opts['choose'],
             device: @opts['device'],
@@ -48,7 +50,9 @@ class Main
             exit
         end
 
-        if params.mkfs
+        if params.ls
+            Command::Ls.new.run
+        elsif params.mkfs
             Command::Mkfs.new.run(list: params.list)
         elsif params.write
             Command::Write.new.run(file: params.file)
@@ -74,6 +78,7 @@ usage = <<~EOF
         #{PROGRAM_NAME} fdisk
         #{PROGRAM_NAME} mkfs [--list]
         #{PROGRAM_NAME} choose (device | partition)
+        #{PROGRAM_NAME} ls
         #{PROGRAM_NAME} --version
 
     Options:
