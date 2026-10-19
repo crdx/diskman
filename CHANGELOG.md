@@ -1,5 +1,7 @@
 # Changelog
 
+## [Next]
+
 ## [1.5.0] - 2024-04-22
 
 - Add `ls` command.
